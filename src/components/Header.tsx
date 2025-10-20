@@ -1,16 +1,30 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
-    }
+    navigate("/");
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        setIsMenuOpen(false);
+      }
+    }, 100);
   };
 
   return (
@@ -38,12 +52,45 @@ const Header = () => {
             >
               About
             </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-foreground hover:text-primary transition-colors font-medium"
-            >
-              Services
-            </button>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-foreground hover:text-primary font-medium">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <button
+                            onClick={() => scrollToSection("services")}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-left w-full"
+                          >
+                            <div className="text-sm font-medium leading-none">All Services</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              View our complete range of logistics services
+                            </p>
+                          </button>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <button
+                            onClick={() => navigate("/services/customs-clearance")}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-left w-full"
+                          >
+                            <div className="text-sm font-medium leading-none">Customs Clearance</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Expert customs clearance services in Dubai and UAE
+                            </p>
+                          </button>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground hover:text-primary transition-colors font-medium"
@@ -80,12 +127,34 @@ const Header = () => {
             >
               About
             </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium"
-            >
-              Services
-            </button>
+            <div>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex w-full items-center justify-between px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium"
+              >
+                Services
+                <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {servicesOpen && (
+                <div className="ml-4 mt-2 space-y-2">
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors text-sm"
+                  >
+                    All Services
+                  </button>
+                  <button
+                    onClick={() => {
+                      navigate("/services/customs-clearance");
+                      setIsMenuOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors text-sm"
+                  >
+                    Customs Clearance
+                  </button>
+                </div>
+              )}
+            </div>
             <button
               onClick={() => scrollToSection("contact")}
               className="block w-full text-left px-4 py-2 hover:bg-muted rounded-lg transition-colors font-medium"
