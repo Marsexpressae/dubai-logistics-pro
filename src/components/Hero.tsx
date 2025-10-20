@@ -38,7 +38,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-slide-in leading-tight">
-            Smooth Flow Logistics
+            Mars Express
           </h1>
 
           <p className="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in leading-relaxed">

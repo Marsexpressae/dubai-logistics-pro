@@ -13,49 +13,49 @@ const services = [
     title: "Local Moving",
     description: "Professional local moving services within Dubai with careful handling and timely delivery.",
     image: warehouseImage,
-    link: null,
+    link: "/services/local-moving",
   },
   {
     icon: PackageCheck,
     title: "LCL (Less Container Load)",
     description: "Cost-effective solutions for smaller shipments consolidated with other cargo.",
     image: portOperationsImage,
-    link: null,
+    link: "/services/lcl",
   },
   {
     icon: Container,
     title: "FCL (Full Container Load)",
     description: "Dedicated container services for large shipments with enhanced security and speed.",
     image: portOperationsImage,
-    link: null,
+    link: "/services/fcl",
   },
   {
     icon: Plane,
     title: "Air Freight",
     description: "Fast and reliable air cargo services for time-sensitive shipments worldwide.",
     image: airFreightImage,
-    link: null,
+    link: "/services/air-freight",
   },
   {
     icon: Ship,
     title: "Cross Stuffing",
     description: "Expert container stuffing and unstuffing services with professional handling.",
     image: portOperationsImage,
-    link: null,
+    link: "/services/cross-stuffing",
   },
   {
     icon: Container,
     title: "Container Loading & Offloading",
     description: "Safe and efficient container operations with modern equipment and trained staff.",
     image: portOperationsImage,
-    link: null,
+    link: "/services/container-loading-offloading",
   },
   {
     icon: Truck,
     title: "Road Transport",
     description: "Reliable ground transportation across UAE and GCC countries with modern fleet.",
     image: roadTransportImage,
-    link: null,
+    link: "/services/road-transport",
   },
   {
     icon: FileText,
@@ -103,7 +103,7 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card
-              key={index}
+              key={service.title}
               className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 overflow-hidden animate-fade-in border-border"
               style={{ animationDelay: `${index * 100}ms` }}
             >
@@ -111,6 +111,8 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 / loading="lazy">
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent"></div>
