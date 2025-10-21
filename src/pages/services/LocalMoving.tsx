@@ -21,7 +21,28 @@ const LocalMoving = () => {
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', 'Tailored residential and commercial moving services in Dubai — packing, transport and unpacking with professional crews.');
+  meta.setAttribute('content', 'Tailored residential and commercial moving services in Dubai — packing, transport and unpacking with professional crews.');
+  let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+  if (!ogTitle) { ogTitle = document.createElement('meta'); ogTitle.setAttribute('property', 'og:title'); document.head.appendChild(ogTitle); }
+  ogTitle.setAttribute('content', 'Local Moving | Mars Express');
+  let ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+  if (!ogDesc) { ogDesc = document.createElement('meta'); ogDesc.setAttribute('property', 'og:description'); document.head.appendChild(ogDesc); }
+  ogDesc.setAttribute('content', 'Residential and commercial local moving in Dubai with professional packing, transport and optional unpacking services.');
+  let ogImage = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+  if (!ogImage) { ogImage = document.createElement('meta'); ogImage.setAttribute('property', 'og:image'); document.head.appendChild(ogImage); }
+  ogImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-localmoving.png');
+  let twTitle = document.querySelector('meta[name="twitter:title"]') as HTMLMetaElement | null;
+  if (!twTitle) { twTitle = document.createElement('meta'); twTitle.setAttribute('name', 'twitter:title'); document.head.appendChild(twTitle); }
+  twTitle.setAttribute('content', 'Local Moving | Mars Express');
+  let twDesc = document.querySelector('meta[name="twitter:description"]') as HTMLMetaElement | null;
+  if (!twDesc) { twDesc = document.createElement('meta'); twDesc.setAttribute('name', 'twitter:description'); document.head.appendChild(twDesc); }
+  twDesc.setAttribute('content', 'Residential and commercial local moving in Dubai with professional packing, transport and optional unpacking services.');
+  let twImage = document.querySelector('meta[name="twitter:image"]') as HTMLMetaElement | null;
+  if (!twImage) { twImage = document.createElement('meta'); twImage.setAttribute('name', 'twitter:image'); document.head.appendChild(twImage); }
+  twImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-localmoving.png');
+  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!canonical) { canonical = document.createElement('link'); canonical.setAttribute('rel', 'canonical'); document.head.appendChild(canonical); }
+  canonical.setAttribute('href', 'https://www.marsexpress.ae/services/local-moving');
 
     return () => {
       document.title = prevTitle;

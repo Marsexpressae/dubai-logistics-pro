@@ -20,7 +20,28 @@ const ContainerLoadingOffloading: React.FC = () => {
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', 'Efficient container loading and offloading services using modern equipment and certified staff to reduce dwell time and damage risk.');
+  meta.setAttribute('content', 'Efficient container loading and offloading services using modern equipment and certified staff to reduce dwell time and damage risk.');
+  let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+  if (!ogTitle) { ogTitle = document.createElement('meta'); ogTitle.setAttribute('property', 'og:title'); document.head.appendChild(ogTitle); }
+  ogTitle.setAttribute('content', 'Container Loading & Offloading | Mars Express');
+  let ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+  if (!ogDesc) { ogDesc = document.createElement('meta'); ogDesc.setAttribute('property', 'og:description'); document.head.appendChild(ogDesc); }
+  ogDesc.setAttribute('content', 'Safe and efficient container loading & offloading using modern equipment and certified teams.');
+  let ogImage = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+  if (!ogImage) { ogImage = document.createElement('meta'); ogImage.setAttribute('property', 'og:image'); document.head.appendChild(ogImage); }
+  ogImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-container.png');
+  let twTitle = document.querySelector('meta[name="twitter:title"]') as HTMLMetaElement | null;
+  if (!twTitle) { twTitle = document.createElement('meta'); twTitle.setAttribute('name', 'twitter:title'); document.head.appendChild(twTitle); }
+  twTitle.setAttribute('content', 'Container Loading & Offloading | Mars Express');
+  let twDesc = document.querySelector('meta[name="twitter:description"]') as HTMLMetaElement | null;
+  if (!twDesc) { twDesc = document.createElement('meta'); twDesc.setAttribute('name', 'twitter:description'); document.head.appendChild(twDesc); }
+  twDesc.setAttribute('content', 'Safe and efficient container loading & offloading using modern equipment and certified teams.');
+  let twImage = document.querySelector('meta[name="twitter:image"]') as HTMLMetaElement | null;
+  if (!twImage) { twImage = document.createElement('meta'); twImage.setAttribute('name', 'twitter:image'); document.head.appendChild(twImage); }
+  twImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-container.png');
+  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!canonical) { canonical = document.createElement('link'); canonical.setAttribute('rel', 'canonical'); document.head.appendChild(canonical); }
+  canonical.setAttribute('href', 'https://www.marsexpress.ae/services/container-loading-offloading');
 
     return () => {
       document.title = prevTitle;

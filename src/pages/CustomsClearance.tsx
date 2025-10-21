@@ -73,7 +73,9 @@ const CustomsClearance = () => {
                   src={portOperationsImage}
                   alt="Customs Clearance Operations"
                   className="rounded-lg shadow-2xl"
-                / loading="lazy">
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>

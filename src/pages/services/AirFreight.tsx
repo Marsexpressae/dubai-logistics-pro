@@ -22,11 +22,72 @@ const AirFreight = () => {
     }
     meta.setAttribute('content', 'Fast, reliable international air cargo services from Dubai. Priority routing, AWB handling, and temperature-controlled options.');
 
+    // Open Graph / Twitter
+    const prevOgTitle = document.querySelector('meta[property="og:title"]')?.getAttribute('content') ?? null;
+    const prevOgDesc = document.querySelector('meta[property="og:description"]')?.getAttribute('content') ?? null;
+    const prevOgImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content') ?? null;
+    let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+    if (!ogTitle) { ogTitle = document.createElement('meta'); ogTitle.setAttribute('property', 'og:title'); document.head.appendChild(ogTitle); }
+    ogTitle.setAttribute('content', 'Air Freight Services | Mars Express');
+    let ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+    if (!ogDesc) { ogDesc = document.createElement('meta'); ogDesc.setAttribute('property', 'og:description'); document.head.appendChild(ogDesc); }
+    ogDesc.setAttribute('content', 'Fast international air cargo from Dubai — priority handling, temperature control and full documentation support.');
+    let ogImage = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+    if (!ogImage) { ogImage = document.createElement('meta'); ogImage.setAttribute('property', 'og:image'); document.head.appendChild(ogImage); }
+    ogImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-airfreight.png');
+
+    const prevTwitterTitle = document.querySelector('meta[name="twitter:title"]')?.getAttribute('content') ?? null;
+    const prevTwitterDesc = document.querySelector('meta[name="twitter:description"]')?.getAttribute('content') ?? null;
+    const prevTwitterImage = document.querySelector('meta[name="twitter:image"]')?.getAttribute('content') ?? null;
+    let twTitle = document.querySelector('meta[name="twitter:title"]') as HTMLMetaElement | null;
+    if (!twTitle) { twTitle = document.createElement('meta'); twTitle.setAttribute('name', 'twitter:title'); document.head.appendChild(twTitle); }
+    twTitle.setAttribute('content', 'Air Freight Services | Mars Express');
+    let twDesc = document.querySelector('meta[name="twitter:description"]') as HTMLMetaElement | null;
+    if (!twDesc) { twDesc = document.createElement('meta'); twDesc.setAttribute('name', 'twitter:description'); document.head.appendChild(twDesc); }
+    twDesc.setAttribute('content', 'Fast international air cargo from Dubai — priority handling, temperature control and full documentation support.');
+    let twImage = document.querySelector('meta[name="twitter:image"]') as HTMLMetaElement | null;
+    if (!twImage) { twImage = document.createElement('meta'); twImage.setAttribute('name', 'twitter:image'); document.head.appendChild(twImage); }
+    twImage.setAttribute('content', 'https://www.marsexpress.ae/opengraph-airfreight.png');
+
+    // canonical
+    const prevCanonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') ?? null;
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) { canonical = document.createElement('link'); canonical.setAttribute('rel', 'canonical'); document.head.appendChild(canonical); }
+    canonical.setAttribute('href', 'https://www.marsexpress.ae/services/air-freight');
+
     return () => {
       document.title = prevTitle;
       if (meta) {
         if (prevMeta !== null) meta.setAttribute('content', prevMeta);
         else meta.remove();
+      }
+      if (ogTitle) {
+        if (prevOgTitle !== null) ogTitle.setAttribute('content', prevOgTitle);
+        else ogTitle.remove();
+      }
+      if (ogDesc) {
+        if (prevOgDesc !== null) ogDesc.setAttribute('content', prevOgDesc);
+        else ogDesc.remove();
+      }
+      if (ogImage) {
+        if (prevOgImage !== null) ogImage.setAttribute('content', prevOgImage);
+        else ogImage.remove();
+      }
+      if (twTitle) {
+        if (prevTwitterTitle !== null) twTitle.setAttribute('content', prevTwitterTitle);
+        else twTitle.remove();
+      }
+      if (twDesc) {
+        if (prevTwitterDesc !== null) twDesc.setAttribute('content', prevTwitterDesc);
+        else twDesc.remove();
+      }
+      if (twImage) {
+        if (prevTwitterImage !== null) twImage.setAttribute('content', prevTwitterImage);
+        else twImage.remove();
+      }
+      if (canonical) {
+        if (prevCanonical !== null) canonical.setAttribute('href', prevCanonical);
+        else canonical.remove();
       }
     };
   }, []);

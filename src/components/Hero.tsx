@@ -25,7 +25,9 @@ const Hero = () => {
           src={heroImage}
           alt="Cargo ship with containers at sea"
           className="w-full h-full object-cover"
-        / loading="lazy">
+          loading="lazy"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/60"></div>
       </div>
 
