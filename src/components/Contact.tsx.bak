@@ -163,7 +163,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Email</h3>
-                  <p className="text-muted-foreground">info@marsexpress.ae</p>
+                  <p className="text-muted-foreground">info@smoothflowlogistics.ae</p>
                 </div>
               </div>
             </div>
@@ -178,7 +178,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mars Express Location in Dubai"
+                title="Smooth Flow Logistics Location in Dubai"
               ></iframe>
             </div>
           </div>

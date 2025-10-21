@@ -18,7 +18,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">SF</span>
               </div>
-              <span className="text-xl font-bold">Mars Express</span>
+              <span className="text-xl font-bold">Smooth Flow Logistics</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted logistics partner in Dubai, delivering excellence across the globe since 1996.
@@ -129,14 +129,14 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                <span className="text-white/80">info@marsexpress.ae</span>
+                <span className="text-white/80">info@smoothflowlogistics.ae</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-white/60">
-          <p>&copy; {new Date().getFullYear()} Mars Express. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Smooth Flow Logistics. All rights reserved.</p>
         </div>
       </div>
     </footer>

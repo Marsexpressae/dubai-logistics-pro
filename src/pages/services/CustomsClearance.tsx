@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { CheckCircle, FileText, Clock, Shield, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,27 @@ import portOperationsImage from "@/assets/port-operations.jpg";
 
 const CustomsClearance = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const prevTitle = document.title;
+    const prevMeta = document.querySelector('meta[name="description"]')?.getAttribute('content') ?? null;
+    document.title = "Customs Clearance Services | Smooth Flow Logistics";
+    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'Streamlined customs clearance services in Dubai and UAE with full regulatory compliance, documentation and rapid processing.');
+
+    return () => {
+      document.title = prevTitle;
+      if (meta) {
+        if (prevMeta !== null) meta.setAttribute('content', prevMeta);
+        else meta.remove();
+      }
+    };
+  }, []);
 
   const benefits = [
     {
@@ -72,9 +94,9 @@ const CustomsClearance = () => {
                 <img
                   src={portOperationsImage}
                   alt="Customs Clearance Operations"
-                  className="rounded-lg shadow-2xl"
                   loading="lazy"
                   decoding="async"
+                  className="rounded-lg shadow-2xl"
                 />
               </div>
             </div>

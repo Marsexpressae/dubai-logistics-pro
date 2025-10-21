@@ -67,8 +67,6 @@ const About = () => {
                 src={portOperationsImage}
                 alt="Port operations with cranes and containers"
                 className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 to-transparent"></div>
             </div>
